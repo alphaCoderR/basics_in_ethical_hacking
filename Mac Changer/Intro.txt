@@ -1,0 +1,13 @@
+In order to communicate or transfer the data from one computer to another computer we need some address. 
+In Computer Network various types of address are introduced; each works at different layer. 
+Media Access Control Address is a physical address which works at Data Link Layer.
+
+MAC Addresses are unique 48-bits hardware number of a computer, which is embedded into network card (known as Network Interface Card) during the time of manufacturing. 
+MAC Address is also known as Physical Address of a network device. 
+
+Format of MAC Address :--
+MAC Address is a 12-digit hexadecimal number (6-Byte binary number), which is mostly represented by Colon-Hexadecimal notation. 
+
+Finding the mac address :
+For Linux : ifconfig
+For Windows : ipconfig /all 
