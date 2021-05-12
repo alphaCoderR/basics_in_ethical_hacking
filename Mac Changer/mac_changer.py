@@ -8,11 +8,11 @@ def random_seg(flag):
     if(flag==False or (flag and num%2==0)):
         sub=str(num)
         return sub
-    
-print("****Here is a list of network interfaces connected to your device ****")
-subprocess.run("ifconfig",shell=True)
+  
+print("**** Here is a list of network interfaces connected to your device ****")
+subprocess.run(["ifconfig"])
 interface=input("Enter the interface whoose mac adress has to be chnged :")
-subprocess.run("sudo ifconfig "+interface+" down",shell=True)
+subprocess.run(["sudo","ifconfig",interface,"down"])
 
 new_mac=""
 for i in range(6):
@@ -25,6 +25,9 @@ for i in range(6):
     else:            
         new_mac=new_mac+sub+":"
 
-subprocess.run("sudo ifconfig "+interface+" hw ether "+new_mac,shell=True)
-subprocess.run("sudo ifconfig "+interface+" up",shell=True)
-print("Mac_Adress of "+interface+" is sucessfully changed to "+new_mac)
+err=subprocess.run(["sudo","ifconfig",interface,"hw","ether",new_mac])
+subprocess.run(["sudo","ifconfig",interface,"up"])
+if(err.returncode==0):
+    print("Mac_Adress of "+interface+" is sucessfully changed to "+new_mac)
+else:
+    print("Task failed. Exiting")
