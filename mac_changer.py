@@ -1,5 +1,6 @@
 import subprocess,random
 
+# Function to generate random segments for the new mac address
 def random_seg(flag):
     num=random.randint(10,99)
     if(flag and num%2!=0):
@@ -27,4 +28,3 @@ for i in range(6):
 subprocess.run("sudo ifconfig "+interface+" hw ether "+new_mac,shell=True)
 subprocess.run("sudo ifconfig "+interface+" up",shell=True)
 print("Mac_Adress of "+interface+" is sucessfully changed to "+new_mac)
-#subprocess.run("ifconfig eth0",shell=True)
